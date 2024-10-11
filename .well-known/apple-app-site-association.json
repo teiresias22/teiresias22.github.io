@@ -1,0 +1,25 @@
+{
+  "applinks": {
+    "apps": [],
+    "details": [
+      {
+        "appIDs": [
+          "83R5US8PK8.com.joonhwan.timewithme.TimeWithMe"
+        ],
+        "paths": [
+          "*"
+        ],
+        "components": [
+          {
+            "/": "/*"
+          }
+        ]
+      }
+    ]
+  },
+  "webcredentials": {
+    "apps": [
+      "83R5US8PK8.com.joonhwan.timewithme.TimeWithMe"
+    ]
+  }
+}

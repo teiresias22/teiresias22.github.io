@@ -1,0 +1,14 @@
+[
+  {
+    "relation": [
+      "delegate_permission/common.handle_all_urls"
+    ],
+    "target": {
+      "namespace": "android_app",
+      "package_name": "com.joonhwan.timewithme.time_with_me",
+      "sha256_cert_fingerprints": [
+        "AA:B2:02:CD:2C:26:C8:C0:9B:C2:6A:DF:24:D1:19:03:56:43:6A:4A:41:5E:75:C9:1E:FA:2B:5A:B1:15:48:BF"
+      ]
+    }
+  }
+]
