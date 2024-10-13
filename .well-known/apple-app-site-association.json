@@ -4,18 +4,8 @@
     "details": [
       {
         "appIDs": ["83R5US8PK8.com.joonhwan.timewithme.TimeWithMe"],
-        "paths": ["*"],
-        "components": [
-          {
-            "/": "/*"
-          }
-        ]
+        "paths": ["*"]
       }
-    ]
-  },
-  "webcredentials": {
-    "apps": [
-      "83R5US8PK8.com.joonhwan.timewithme.TimeWithMe"
     ]
   }
 }
