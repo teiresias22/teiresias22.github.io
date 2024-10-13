@@ -3,12 +3,8 @@
     "apps": [],
     "details": [
       {
-        "appIDs": [
-          "83R5US8PK8.com.joonhwan.timewithme.TimeWithMe"
-        ],
-        "paths": [
-          "*"
-        ],
+        "appIDs": ["83R5US8PK8.com.joonhwan.timewithme.TimeWithMe"],
+        "paths": ["*"],
         "components": [
           {
             "/": "/*"
