@@ -4,10 +4,44 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Invite Page</title>
-    <script src="js/invite.js"></script>
+    <script type="text/javascript">
+        // URL에서 파라미터 가져오는 함수 정의
+        function getParameterByName(name) {
+            const url = window.location.href;
+            name = name.replace(/[\[\]]/g, '\\$&');
+            const regex = new RegExp('[?&]' + name + '(=([^&#]*)|&|#|$)'),
+                  results = regex.exec(url);
+            if (!results) return null;
+            if (!results[2]) return '';
+            return decodeURIComponent(results[2].replace(/\+/g, ' '));
+        }
+
+        const id = getParameterByName('id'); // URL에서 'id' 파라미터 추출
+
+        function openInBrowser() {
+            const userAgent = navigator.userAgent || navigator.vendor || window.opera;
+
+            // iOS에서 사파리로 열기
+            if (/iPad|iPhone|iPod/.test(userAgent) && !window.MSStream) {
+                window.location.href = `http://teiresias22.github.io/invite/${id}`;
+                // 사파리로 자동 리디렉션
+                setTimeout(() => {
+                    window.open(`http://teiresias22.github.io/invite/${id}`, '_blank');
+                }, 500);
+            // 안드로이드에서 구글 브라우저로 열기
+            } else if (/android/i.test(userAgent)) {
+                window.location.href = `googlechrome://navigate?url=http://teiresias22.github.io/invite/${id}`;
+            }
+            // 다른 플랫폼은 기본 동작으로 이동
+            else {
+                window.location.href = `http://teiresias22.github.io/invite/${id}`;
+            }
+        }
+    </script>
 </head>
 <body>
-<h1>Welcome to the Invite Page!</h1>
-<p>You're here because you followed an invite link.</p>
+    <h1>Welcome to the Invite Page!</h1>
+    <p>You're here because you followed an invite link.</p>
+    <a href="#" onclick="openInBrowser()">Open App</a>
 </body>
 </html>
