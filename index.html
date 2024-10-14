@@ -1,16 +1,16 @@
 <!DOCTYPE html>
-<heml>
+<html lang="en">
     <head>
-        <title>Teiresias app download</title>
-        <meta name="viewport" content="with=device=width, initaial-scale=1">
+        <title>Teiresias App Download</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
         <script type="text/javascript">
             window.onload = function() {
-                var visitTime = (now.Date()).getTime();
+                var visitTime = new Date().getTime();
 
                 var isAndroid = /android/i.test(navigator.userAgent);
-                var isiOS = /iPad|iPhone|iPod/.text(navigator.userAgent) && !window.MSStream;
+                var isiOS = /iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream;
 
-                if(isAndroid) {
+                if (isAndroid) {
                     location.href = "https://play.google.com/store/apps/details?id=com.colorofdays.color_of_days&pcampaignid=web_share";
                 } else if (isiOS) {
                     location.href = "https://apps.apple.com/kr/app/id6443436725";
@@ -19,11 +19,7 @@
         </script>
     </head>
     <body>
-    <h1>
-        AppLink Test
-        <p>
-            This is an example of a website that redirects users to the my app's page on the App Store or Play Store, depending on their device
-        </p>
-    </h1>
+        <h1>AppLink Test</h1>
+        <p>This is an example of a website that redirects users to the app's page on the App Store or Play Store, depending on their device.</p>
     </body>
-</heml>
+</html>
