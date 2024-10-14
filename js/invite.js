@@ -1,16 +1,12 @@
-document.getElementById('openLink').addEventListener('click', function() {
-    const queryString = window.location.search;
-    const urlParams = new URLSearchParams(queryString);
+window.onload = function() {
+    var visitTime = new Date().getTime();
 
-    var userAgent = navigator.userAgent || navigator.vendor || window.opera;
+    var isAndroid = /android/i.test(navigator.userAgent);
+    var isiOS = /iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream;
 
-    var linkToOpen = urlParams;
-
-    if (/android/i.test(userAgent)) {
-        window.open('googlechrome://' + linkToOpen, '_blank');
-    } else if (/iPad|iPhone|iPod/.test(userAgent) && !window.MSStream) {
-        window.open('https://teiresias22.github.io/invite', '_blank'); // iOS Safari will handle this
-    } else {
-        window.open(linkToOpen, '_blank');
+    if (isAndroid) {
+        location.href = "https://play.google.com/store/apps/details?id=com.colorofdays.color_of_days&pcampaignid=web_share";
+    } else if (isiOS) {
+        location.href = "https://apps.apple.com/kr/app/id6443436725";
     }
-});
+}
