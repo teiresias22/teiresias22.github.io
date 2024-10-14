@@ -18,6 +18,16 @@
 
         const id = getParameterByName('id'); // URL에서 'id' 파라미터 추출
 
+        // 클립보드에 URL 복사
+        function copyToClipboard() {
+            const inviteURL = `https://teiresias22.github.io/invite?id=${id}`;
+            navigator.clipboard.writeText(inviteURL).then(() => {
+                alert('URL이 클립보드에 복사되었습니다: ' + inviteURL);
+            }).catch(err => {
+                alert('URL 복사에 실패했습니다: ' + err);
+            });
+        }
+
         function openInBrowser() {
             const userAgent = navigator.userAgent || navigator.vendor || window.opera;
 
@@ -42,5 +52,7 @@
 <h1>Welcome to the Invite Page!</h1>
 <p>You're here because you followed an invite link.</p>
 <a href="#" onclick="openInBrowser()">Open App</a>
+<!-- URL 복사 버튼 -->
+<button onclick="copyToClipboard()">Copy invite code</button>
 </body>
 </html>
