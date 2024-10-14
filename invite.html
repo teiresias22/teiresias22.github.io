@@ -23,25 +23,24 @@
 
             // iOS에서 사파리로 열기
             if (/iPad|iPhone|iPod/.test(userAgent) && !window.MSStream) {
-                window.location.href = `http://teiresias22.github.io/invite/${id}`;
-                // 사파리로 자동 리디렉션
-                setTimeout(() => {
-                    window.open(`http://teiresias22.github.io/invite/${id}`, '_blank');
-                }, 500);
-            // 안드로이드에서 구글 브라우저로 열기
-            } else if (/android/i.test(userAgent)) {
-                window.location.href = `googlechrome://navigate?url=http://teiresias22.github.io/invite/${id}`;
+                // target="_blank" 사용하여 새 창에서 열기 시도
+                window.open(`http://teiresias22.github.io/invite?id=${id}`, '_blank');
             }
-            // 다른 플랫폼은 기본 동작으로 이동
+            // 안드로이드에서 구글 크롬으로 열기
+            else if (/android/i.test(userAgent)) {
+                // 구글 크롬 스킴 사용
+                window.location.href = `intent://teiresias22.github.io/invite?id=${id}#Intent;scheme=https;package=com.android.chrome;end`;
+            }
+            // 기본 동작으로 열기
             else {
-                window.location.href = `http://teiresias22.github.io/invite/${id}`;
+                window.location.href = `http://teiresias22.github.io/invite?id=${id}`;
             }
         }
     </script>
 </head>
 <body>
-    <h1>Welcome to the Invite Page!</h1>
-    <p>You're here because you followed an invite link.</p>
-    <a href="#" onclick="openInBrowser()">Open App</a>
+<h1>Welcome to the Invite Page!</h1>
+<p>You're here because you followed an invite link.</p>
+<a href="#" onclick="openInBrowser()">Open App</a>
 </body>
 </html>
