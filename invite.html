@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Invite Page</title>
     <script type="text/javascript">
-        // URL에서 파라미터 가져오는 함수 정의
         function getParameterByName(name) {
             const url = window.location.href;
             name = name.replace(/[\[\]]/g, '\\$&');
@@ -15,23 +14,27 @@
             if (!results[2]) return '';
             return decodeURIComponent(results[2].replace(/\+/g, ' '));
         }
-
         const id = getParameterByName('id');
+        var isAndroid = /android/i.test(navigator.userAgent);
+        var isiOS = /iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream;
 
         function openInBrowser() {
             const userAgent = navigator.userAgent || navigator.vendor || window.opera;
 
-            // iOS에서 사파리로 열기
-            if (/iPad|iPhone|iPod/.test(userAgent) && !window.MSStream) {
+            if (isiOS) {
                 window.open(`http://teiresias22.github.io/invite?id=${id}`, '_blank');
-            }
-            // 안드로이드에서 구글 크롬으로 열기
-            else if (/android/i.test(userAgent)) {
+            } else if (isAndroid) {
                 window.location.href = `intent://teiresias22.github.io/invite?id=${id}#Intent;scheme=https;package=com.android.chrome;end`;
-            }
-            // 기본 동작으로 열기
-            else {
+            } else {
                 window.location.href = `http://teiresias22.github.io/invite?id=${id}`;
+            }
+        }
+
+        function downloadBrowser() {
+            if (isAndroid) {
+                location.href = "https://play.google.com/store/apps/details?id=com.colorofdays.color_of_days&pcampaignid=web_share";
+            } else if (isiOS) {
+                location.href = "https://apps.apple.com/kr/app/id6443436725";
             }
         }
     </script>
@@ -39,7 +42,7 @@
 <body>
 <h1>Welcome to the Invite Page!</h1>
 <p>You're here because you followed an invite link.</p>
-<a href="#" onclick="openInBrowser()">Open App</a>
 <button onclick="openInBrowser()">Open App</button>
+<button onclick="downloadBrowser()">Download App</button>
 </body>
 </html>
