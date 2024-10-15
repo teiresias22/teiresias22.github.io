@@ -30,6 +30,10 @@
             }
         }
 
+        function testerBrowser() {
+            location.href = "https://docs.google.com/forms/d/e/1FAIpQLScqJ7d4QEMWZCVTW_P_ZyorjLAwLLUL-o1khWrTdtorY81O-w/viewform?usp=sf_link";
+        }
+
         function downloadBrowser() {
             if (isAndroid) {
                 location.href = "https://play.google.com/store/apps/details?id=com.colorofdays.color_of_days&pcampaignid=web_share";
@@ -43,6 +47,6 @@
 <h1>Welcome to the Invite Page!</h1>
 <p>You're here because you followed an invite link.</p>
 <button onclick="openInBrowser()">Open App</button>
-<button onclick="downloadBrowser()">Download App</button>
+<button onclick="testerBrowser()">Download App</button>
 </body>
 </html>
