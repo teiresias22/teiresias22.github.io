@@ -16,17 +16,22 @@
             return decodeURIComponent(results[2].replace(/\+/g, ' '));
         }
 
-        const id = getParameterByName('id'); // URL에서 'id' 파라미터 추출
+        const id = getParameterByName('id');
 
         function openInBrowser() {
             const userAgent = navigator.userAgent || navigator.vendor || window.opera;
 
+            // iOS에서 사파리로 열기
             if (/iPad|iPhone|iPod/.test(userAgent) && !window.MSStream) {
-                window.open(`https://teiresias22.github.io/invite?id=${id}`, '_blank');
-            } else if (/android/i.test(userAgent)) {
-                window.location.href = `intent://teiresias22.github.io/invite?id=${id}#Intent;scheme=https;package=com.joonhwan.timewithme;S.browser_fallback_url=https%3A%2F%2Fplay.google.com%2Fstore%2Fapps%2Fdetails%3Fid%3Dcom.joonhwan.timewithme;end`;
-            } else {
-                window.location.href = `https://teiresias22.github.io/invite?id=${id}`;
+                window.open(`http://teiresias22.github.io/invite?id=${id}`, '_blank');
+            }
+            // 안드로이드에서 구글 크롬으로 열기
+            else if (/android/i.test(userAgent)) {
+                window.location.href = `intent://teiresias22.github.io/invite?id=${id}#Intent;scheme=https;package=com.android.chrome;end`;
+            }
+            // 기본 동작으로 열기
+            else {
+                window.location.href = `http://teiresias22.github.io/invite?id=${id}`;
             }
         }
     </script>
@@ -34,12 +39,7 @@
 <body>
 <h1>Welcome to the Invite Page!</h1>
 <p>You're here because you followed an invite link.</p>
-
 <a href="#" onclick="openInBrowser()">Open App</a>
-
 <button onclick="openInBrowser()">Open App</button>
-
-<button onclick="copyToClipboard()">Copy Invite URL</button>
-
 </body>
 </html>
