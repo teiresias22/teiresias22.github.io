@@ -3,7 +3,7 @@
     "apps": [],
     "details": [
       {
-        "appIDs": ["83R5US8PK8.com.joonhwan.timewithme.TimeWithMe"],
+        "appID": "83R5US8PK8.com.joonhwan.timewithme.TimeWithMe",
         "paths": [ "/invite/*" ]
       }
     ]
