@@ -1,11 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Invite Page</title>
-        <script type="text/javascript">
-            window.onload = function() {
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Invite Page</title>
+    <script type="text/javascript">
+        window.onload = function() {
+            var urlParams = new URLSearchParams(window.location.search);
+
+            if (urlParams.has('redirect')) {
                 var isAndroid = /android/i.test(navigator.userAgent);
                 var isiOS = /iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream;
 
@@ -15,10 +18,11 @@
                     location.href = "https://apps.apple.com/kr/app/id6443436725";
                 }
             }
-        </script>
-    </head>
-    <body>
-        <h1>Welcome to the Color of Days</h1>
-        <p>Please download app this links</p>
-    </body>
+        }
+    </script>
+</head>
+<body>
+<h1>Welcome to the Color of Days</h1>
+<p>Please download the app using these links.</p>
+</body>
 </html>
